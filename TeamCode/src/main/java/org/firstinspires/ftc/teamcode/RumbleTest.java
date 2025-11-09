@@ -13,7 +13,7 @@ public class RumbleTest extends OpMode {
 
     @Override
     public void start() {
-        endGameStart = getRuntime() + 90;
+        endGameStart = getRuntime() + 100;
     }
 
     @Override
@@ -21,6 +21,9 @@ public class RumbleTest extends OpMode {
         // end game check
         if (endGameStart >= getRuntime() && !isEndGame) {
             gamepad1.rumbleBlips(3);
+            gamepad2.rumbleBlips(3);
+            telemetry.addLine("End Game: 20s Remaining! Return to base.");
+            telemetry.update();
             isEndGame = true;
         }
     }
